@@ -3,16 +3,16 @@ import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
 import com.aluracursos.screenmatch.modelos.Episodio;
 import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
+import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
         /*
-        com.aluracursos.screenmatch.modelos.Pelicula al principio, del lado izquierdo lo tomamos como un tipo de dato que nosotros creamos
-        y del lado derecho, después de new es donde creamos la instancia (objeto), que se va a almacenar
-        en la memoria.
+        com.aluracursos.screenmatch.modelos.Pelicula al principio, del lado izquierdo lo tomamos como un tipo de
+        dato que nosotros creamos y del lado derecho, después de new es donde creamos la instancia (objeto), que se
+        va a almacenar en la memoria.
          */
-        Pelicula miPelicula = new Pelicula();
-        miPelicula.setNombre("Encanto");
+        Pelicula miPelicula = new Pelicula("Encanto");
         miPelicula.setFechaDeLanzamiento(2021);
         miPelicula.setDuracionEnMinutos(120);
         miPelicula.setIncluidoEnElPlan(true);
@@ -34,8 +34,7 @@ public class Principal {
         casaDragon.muestraFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
 
-        Pelicula otraPelicula = new Pelicula();
-        otraPelicula.setNombre("Matrix");
+        Pelicula otraPelicula = new Pelicula("Matrix");
         otraPelicula.setFechaDeLanzamiento(1998);
         otraPelicula.setDuracionEnMinutos(180);
 
@@ -56,5 +55,27 @@ public class Principal {
         episodio.setTotalVisualizaciones(300);
 
         filtroRecomendacion.filtra(episodio);
+
+
+        var peliculaDeBruno = new Pelicula("Senior de los anillos");
+        peliculaDeBruno.setDuracionEnMinutos(180);
+        peliculaDeBruno.setFechaDeLanzamiento(2001);
+
+        ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
+        listaDePeliculas.add(peliculaDeBruno);
+        listaDePeliculas.add(miPelicula);
+        listaDePeliculas.add(otraPelicula);
+
+        System.out.println("Tamaño de la lista: "+listaDePeliculas.size());
+        System.out.println("La primer película es: "+listaDePeliculas.get(0).getNombre());
+
+        /*
+        Todas las clases heredan de la clase madre Object (es la clase madre de todas las clases) y todas las clases
+        heredan los métodos de object y nosotros los podemos sobreescribir
+         */
+        System.out.println(listaDePeliculas.toString());
+        System.out.println("ToString de la película "+listaDePeliculas.get(0).toString());
+
+        Object objeto = peliculaDeBruno;
     }
 }
