@@ -4,8 +4,7 @@ import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 import com.aluracursos.screenmatch.modelos.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class PrincipalConListas {
     public static void main(String[] args) {
@@ -40,7 +39,10 @@ public class PrincipalConListas {
             }
         }
 
-        ArrayList<String>listaDeArtistas = new ArrayList<>();
+        /*
+        List es una interfaz, la interfaz madre de List es Collection.
+         */
+        List<String> listaDeArtistas = new LinkedList<>();
         listaDeArtistas.add("Penelope Cruz");
         listaDeArtistas.add("Antonio Banderas");
         listaDeArtistas.add("Ricardo Darin");
@@ -50,6 +52,13 @@ public class PrincipalConListas {
         System.out.println("Lista de artistas ordenada: "+listaDeArtistas);
         Collections.sort(lista);
         System.out.println("Lista de títulos ordenados: "+lista);
+
+        /*
+        Investigar el sort(comparator.comparing)
+         */
+        lista.sort(Comparator.comparing(Titulo::getFechaDeLanzamiento));
+        System.out.println("Lista ordenada por fecha: "+lista);
+
 
     }
 }
